@@ -1,0 +1,53 @@
+{
+	"name": "DS_Blob_Source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_Blob_Source",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"fileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().fileName",
+					"type": "Expression"
+				},
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "claim_id",
+				"type": "String"
+			},
+			{
+				"name": "policy_id",
+				"type": "String"
+			},
+			{
+				"name": "claim_amount",
+				"type": "String"
+			},
+			{
+				"name": "claim_date",
+				"type": "String"
+			},
+			{
+				"name": "status",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
